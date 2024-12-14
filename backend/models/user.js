@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Interview from "./interview";
 
 const userSchema=new mongoose.Schema({
     username:{
@@ -13,5 +14,21 @@ const userSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true
-    }
+    },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    //  array of interviews
+    pastInterviews:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:Interview,
+        default:[]
+    }]
+    
 },{timestamps:true})
+
+const User=mongoose.model("User",userSchema);
+
+export default User;
