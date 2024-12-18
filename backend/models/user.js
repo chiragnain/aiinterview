@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Interview from "./interview";
 
 const userSchema=new mongoose.Schema({
-    username:{
+    userName:{
         type:String,
         required:true,
         unique:true
@@ -26,7 +26,7 @@ const userSchema=new mongoose.Schema({
         ref:Interview,
         default:[]
     }]
-    
+
 },{timestamps:true})
 
 const User=mongoose.model("User",userSchema);

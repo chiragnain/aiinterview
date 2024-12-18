@@ -9,6 +9,9 @@ import connectMongoDB from "./db/connectMongoDB.js"
 
 const app=express()
 const port=process.env.PORT||8000
+
+app.use(express.json()) // to parse req.body
+
 //app.use to create a middleware
 app.use("/auth",authroutes)
 
